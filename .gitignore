@@ -1,2 +1,4 @@
 .repro/*
 repro.lua
+yazi/flavors/
+yazi/package.toml

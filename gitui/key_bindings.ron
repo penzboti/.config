@@ -1,0 +1,6 @@
+(
+    move_left: Some(( code: Char('j'), modifiers: "")),
+    move_down: Some(( code: Char('k'), modifiers: "")),
+    move_up: Some(( code: Char('l'), modifiers: "")),
+    move_right: Some(( code: Char('é'), modifiers: "")),
+)

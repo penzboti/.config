@@ -3,6 +3,8 @@
 # https://www.youtube.com/playlist?list=PL4AR7tbGuBH5AzV0tPpTfYgGIF5vk3HN2 helix tutorial & config yt series
 # plugin branch: https://github.com/helix-editor/helix/pull/8675
 # evil helix: helix with vim bindings: https://github.com/usagi-flow/evil-helix
+# https://github.com/helix-editor/helix/blob/master/languages.toml # lsp
+# https://docs.helix-editor.com/keymap.html # current keymap
 
 theme = "rose_pine"
 
@@ -17,8 +19,7 @@ cursorline = true
 rulers = [100]
 true-color = true
 end-of-line-diagnostics = "hint" # Minimum severity to show a diagnostic after the end of a line
-# https://github.com/helix-editor/helix/discussions/6209
-# well it's not going to be cross-compatible this way
+# https://github.com/helix-editor/helix/discussions/6209 well its not goint to be unix compliant this way
 # time to write a polyglot program (maybe?)
 shell = ["pwsh.exe","-NoLogo","-NoProfile","-NoProfileLoadTime","-Command","$PSStyle.OutputRendering='PlainText';"]
 

@@ -7,6 +7,6 @@
 # todo
 - vscode config
 - zed config (even if it is unfinished)
-- ghostty?
-- nushell && fish?
-- gitui?
+- ghostty
+- fish shell if its coming to windows
+- nushell if i like it
