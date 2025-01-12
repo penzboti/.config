@@ -1,0 +1,8 @@
+"https://stackoverflow.com/questions/60463744/how-to-move-current-line-up-or-down-in-vim-for-vscode
+"
+nnoremap <A-k> :m .+1<CR>==
+nnoremap <A-l> :m .-2<CR>==
+"inoremap <A-k> <Esc>:m .+1<CR>==gi
+"inoremap <A-l> <Esc>:m .-2<CR>==gi
+vnoremap <A-k> :m '>+1<CR>gv=gv
+vnoremap <A-l> :m '<-2<CR>gv=gv
