@@ -1,0 +1,2 @@
+- get vscode config in here; zed?
+- would get hyprland but i want it in home-manager instead
