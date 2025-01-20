@@ -7,11 +7,15 @@ vim.keymap.set({'n','v'},'l','k')
 vim.keymap.set({'n','v'},'é','l')
 
 vim.g.mapleader = " "
-
 vim.keymap.set('n',"<leader>w",":w<enter>")
 vim.keymap.set('n',"<leader>q",":q<enter>")
 vim.keymap.set('n',"<leader>pv",":Ex<enter>")
 
+-- test ctrl-é
+-- vim.keymap.set('n',"<C-é>",function() print("a") end)
+
+-- alt+j & alt+k
+--TODO: make the selection come back
 vim.api.nvim_command('source ~/.config/nvim/.vimrc')
 
 vim.o.relativenumber = true
@@ -24,9 +28,11 @@ vim.o.shiftwidth = 2
 
 vim.opt.termguicolors = true
 
-config = function()
+local config = function()
   vim.cmd("colorscheme rose-pine")
+
   require('Comment').setup()
+
   require('netrw').setup({
     icons = {
       symlink = '',
@@ -34,8 +40,6 @@ config = function()
       file = '',
     },use_devicons = true
   })
-  require("lsp-zero").setup()
-  require("mason").setup()
 
   local builtin = require('telescope.builtin')
   vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
@@ -54,23 +58,15 @@ config = function()
     term.gotoTerminal(1)
   end)
 
+  require("lsp-zero").setup()
   vim.opt.signcolumn = 'yes'
 
   local lspconfig_defaults = require('lspconfig').util.default_config
   lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lspconfig_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
   )
-
-  vim.api.nvim_create_autocmd('LspAttach', {
-    desc = 'LSP actions',
-    callback = function(event)
-      ---
-      -- code omitted for brevity...
-      ---
-    end,
-  })
 
   require('mason').setup({})
   require('mason-lspconfig').setup({
@@ -87,34 +83,107 @@ config = function()
     },
   })
 
+  local luasnip = require("luasnip")
   local cmp = require('cmp')
   cmp.setup({
-    sources = {
+    sources = cmp.config.sources({
       {name = 'nvim_lsp'},
-    },
+      {name = 'luasnip'},
+    }, {
+      { name = 'buffer' },
+    }),
     mapping = cmp.mapping.preset.insert({
       -- Navigate between completion items
       ['<C-l>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
       ['<C-k>'] = cmp.mapping.select_next_item({behavior = 'select'}),
 
-      -- `Enter` key to confirm completion
-      ['<CR>'] = cmp.mapping.confirm({select = false}),
+      -- accept selection (or if not selected, the first option)
+      ["<C-Space>"] = cmp.mapping.confirm({select = false}),
+      ['<C-j>'] = cmp.mapping.confirm({select = true}),
+      -- what doesnt work FOR SOME REASON
+      ["<C-é>"] = cmp.mapping.confirm({select = true}),
+      -- test ctrl-é WHICH WORKS
+      -- ['<C-é>'] = { function() print("a") end,},
 
-      -- Ctrl+Space to trigger completion menu
-      ['<C-Space>'] = cmp.mapping.complete(),
+      -- Ctrl+h to trigger completion menu
+      ['<C-h>'] = cmp.mapping.complete(),
 
       -- Scroll up and down in the completion documentation
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+      -- multiple tab in snippets
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.locally_jumpable(1) then
+          luasnip.jump(1)
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+
+      -- tab back in snippets
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.locally_jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+
+      -- accepts snippets (i think)
+      ['<CR>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          if luasnip.expandable() then
+            luasnip.expand()
+          else
+            cmp.confirm({
+              select = true,
+            })
+          end
+        else
+          fallback()
+        end
+      end),
+
     }),
     snippet = {
       expand = function(args)
-        vim.snippet.expand(args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
   })
 end
 
+-- apparently this would allow the commandline to autocomplete
+-- which it already does? and if i allow it, it doesnt?
+-- weird
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = cmp.config.sources({
+--     { name = 'path' }
+--   }, {
+--     { name = 'cmdline' }
+--   }),
+--   matching = { disallow_symbol_nonprefix_matching = false }
+-- })
+
+-- i have no idea what this does.
+-- i think it connets cmd to the lsp buuuut it already does that
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   desc = 'LSP actions',
+--   callback = function(event)
+--     ---
+--     -- code omitted for brevity...
+--     ---
+--   end,
+-- })
+
+
+-- packer setup
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'numToStr/Comment.nvim'
@@ -159,3 +228,4 @@ return require('packer').startup(function(use)
 
   config()
 end)
+-- should be the last thing
