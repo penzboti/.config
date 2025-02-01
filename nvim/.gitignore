@@ -1,2 +1,4 @@
 plugin/
 cmp-repro.vim
+old/
+lazy-lock.json
