@@ -1,30 +1,60 @@
-vim.keymap.set({'n','v'},'j','h')
-vim.keymap.set({'n','v'},'k','j')
-vim.keymap.set({'n','v'},'l','k')
-vim.keymap.set({'n','v'},'é','l')
+local map = vim.keymap
+-- moving
+map.set({ "n", "v" }, "j", "h")
+map.set({ "n", "v" }, "k", "j")
+map.set({ "n", "v" }, "l", "k")
+map.set({ "n", "v" }, "é", "l")
 
-vim.g.mapleader = " "
-vim.keymap.set('n',"<leader>w",":w<enter>")
-vim.keymap.set('n',"<leader>q",":q<enter>")
-vim.keymap.set('n',"<leader>pv",":Ex<enter>")
+-- basic
+-- these are not instant? for some reason. and nowait doesnt work?
+map.set("n", "<leader>w", ":w<enter>", { nowait = true, silent = true })
+map.set("n", "<leader>q", ":q<enter>")
+map.set("n", "<leader>pv", ":Ex<enter>")
+map.set("n", "<leader>n", ":new<CR>")
 
-vim.keymap.set("n", "<A-k>", ":m .+1<CR>==") -- move line up(n)
-vim.keymap.set("n", "<A-l>", ":m .-2<CR>==") -- move line down(n)
-vim.keymap.set("v", "<A-l>", ":m '>+1<CR>gv=gv") -- move line up(v)
-vim.keymap.set("v", "<A-l>", ":m '<-2<CR>gv=gv") -- move line down(v)
+-- move lines
+map.set("n", "<A-k>", ":m .+1<CR>==")
+map.set("n", "<A-l>", ":m .-2<CR>==")
+map.set("v", "<A-l>", ":m '>+1<CR>gv=gv")
+map.set("v", "<A-l>", ":m '<-2<CR>gv=gv")
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+-- center screen after jumps
+map.set("n", "<C-d>", "<C-d>zz")
+map.set("n", "<C-u>", "<C-u>zz")
+map.set("n", "<C-b>", "<C-b>zz")
+map.set("n", "<C-f>", "<C-f>zz")
 
-vim.keymap.set("n", "<space>s", require("nvim-tree.api").tree.toggle, {
-  silent = true,
-  desc = "toggle nvim-tree",
+-- telescope
+local builtin = require("telescope.builtin")
+map.set("n", "<leader>ff", builtin.find_files, {})
+map.set("n", "<leader>fg", builtin.live_grep, {})
+map.set("n", "<leader>fb", builtin.buffers, {})
+-- map.set("n", "<leader>fh", builtin.help_tags, {})
+
+-- file tree
+map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
+	silent = true,
+	desc = "toggle nvim-tree",
 })
 
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+-- code collapse (doesnt work tho)
+map.set("n", "zR", require("ufo").openAllFolds)
+map.set("n", "zM", require("ufo").closeAllFolds)
 
-vim.keymap.set("n", "<leader>d", ":Dashboard<CR>")
+-- go back to dashboard
+map.set("n", "<leader>d", ":Dashboard<CR>")
+
+-- git
+map.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git: show status" })
+
+-- buffer move (like tabs but not)
+map.set("n", "<A-e>", ":enew<CR>")
+map.set("n", "<A-h>", ":Telescope scope buffers<CR>")
+map.set("n", "<A-j>", ":bprev<CR>")
+map.set("n", "<A-é>", ":bnext<CR>")
+map.set("n", "<A-c>", ":w<CR>:bd<CR>", { silent = true })
+map.set("n", "<leader><A-c>", ":bd", { silent = true })
+
+-- more indentation
+map.set("v", ">", ">gv")
+map.set("v", "<", "<gv")

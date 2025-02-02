@@ -1,17 +1,19 @@
--- vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
+local opt = vim.opt
+-- opt.clipboard = 'unnamedplus' -- use system keyboard for yank
 
-vim.opt.nu = true -- set line numbers
-vim.opt.relativenumber = true -- use relative line numbers
+opt.nu = true -- set line numbers
+opt.relativenumber = true -- use relative line numbers
 
 -- set tab size to 2 spaces
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+-- for some reason lua still uses tabs?
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
 
-vim.opt.wrap = false
+opt.wrap = true
 
-vim.opt.incsearch = true -- incremental search
+opt.incsearch = true -- incremental search
 
-vim.opt.termguicolors = true
+opt.termguicolors = true
