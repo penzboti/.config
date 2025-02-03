@@ -1,4 +1,4 @@
--- TODO: dont auto open fold on save (it has a bit of delay but still does it)
+-- TODO: dont auto open fold on save (it has a bit of delay but still does it) (only lua?) (only windows??)
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}

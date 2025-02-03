@@ -27,9 +27,11 @@ map.set("n", "<C-f>", "<C-f>zz")
 -- telescope
 local builtin = require("telescope.builtin")
 map.set("n", "<A-f>", builtin.find_files, {})
+map.set("n", "<leader>ff", builtin.find_files, {})
 map.set("n", "<leader>fg", builtin.live_grep, {})
 map.set("n", "<leader>fb", builtin.buffers, {})
 -- map.set("n", "<leader>fh", builtin.help_tags, {})
+map.set("n", "<leader>ft", ":TodoTelescope<CR>")
 
 -- file tree
 map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
@@ -57,3 +59,5 @@ map.set("n", "<A-c>", ":bd<CR>") -- will not close if buffer is unsaved
 -- more indentation
 map.set("v", ">", ">gv")
 map.set("v", "<", "<gv")
+
+map.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")

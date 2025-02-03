@@ -26,8 +26,14 @@ return {
           {
             icon = "󰈞  ",
             desc = "Find  File                              ",
-            -- action = "Leaderf file --popup",
+            action = "Telescope find_files",
             key = "<Leader> f f",
+          },
+          {
+            icon = "󰈞  ",
+            desc = "Open Buffers                            ",
+            action = "Telescope buffers",
+            key = "<Leader> f b",
           },
           {
             icon = "  ",
@@ -35,12 +41,7 @@ return {
             action = "tabnew $MYVIMRC | tcd %:p:h",
             key = "<Leader> c",
           },
-          -- {
-          -- 	icon = "  ",
-          -- 	desc = "Open Nvim bindings                      ",
-          -- 	action = "tabnew $MYVIMRC | tcd %:p:h | edit lua/mappings.lua",
-          -- 	key = "<Leader> e b",
-          -- },
+          -- TODO: make a bindings help file
           {
             icon = "  ",
             desc = "New file                                ",
