@@ -1,12 +1,10 @@
 # todo
-decide between tabs and buffers
-## currently
-buffers
-if tabs happen, manually close them
-## tabs
-can make multiple windows in a tab (so split view) and then you can have multiple tabs
-## buffers
-for some reason it saves the last buffer so it also works
-i think this is what i'll stick with
-# issue
-the lua autoformatter uses tabs instead of spaces
+- markdown preview
+- treesitter on nixos (without installed c compiler)
+- scope.nvim save state
+- gitsings plugin error
+- idk what hop plugin does
+- lualine & tabline: file naming on top, remove from bottom; maybe move the command bar
+- move plugins to one file: commentary & todo; ufo & statuscol
+# info
+buffers are set up to function like traditional tabs

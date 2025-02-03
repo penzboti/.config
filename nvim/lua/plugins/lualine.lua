@@ -1,6 +1,6 @@
 return {
-  'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     options = {
       icons_enabled = true,
@@ -10,17 +10,17 @@ return {
       always_divide_middle = true,
     },
     sections = {
-      lualine_a = {'mode'},
-      lualine_b = {'branch', 'diff', 'diagnostics'},
-      lualine_c = {'filename'},
+      lualine_a = { "mode" },
+      lualine_b = { "branch", "diff", "diagnostics" },
+      lualine_c = { "filename" },
       lualine_x = {
-        -- 'encoding', 
-        -- 'fileformat', 
-        'filetype'
+        -- 'encoding',
+        -- 'fileformat',
+        "filetype",
       },
       -- lualine_y = {'progress'},
-      lualine_z = {'location'}
+      lualine_z = { "location" },
     },
     extensions = { "quickfix", "fugitive", "nvim-tree" },
-  }
+  },
 }

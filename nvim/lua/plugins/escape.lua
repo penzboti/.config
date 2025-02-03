@@ -1,3 +1,3 @@
 return {
-	"nvim-zh/better-escape.vim",
+  "nvim-zh/better-escape.vim",
 }

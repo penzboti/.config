@@ -1,3 +1,3 @@
 return {
-  'phaazon/hop.nvim'
+  "phaazon/hop.nvim",
 }

@@ -15,7 +15,7 @@ map.set("n", "<leader>n", ":new<CR>")
 -- move lines
 map.set("n", "<A-k>", ":m .+1<CR>==")
 map.set("n", "<A-l>", ":m .-2<CR>==")
-map.set("v", "<A-l>", ":m '>+1<CR>gv=gv")
+map.set("v", "<A-k>", ":m '>+1<CR>gv=gv")
 map.set("v", "<A-l>", ":m '<-2<CR>gv=gv")
 
 -- center screen after jumps
@@ -26,15 +26,15 @@ map.set("n", "<C-f>", "<C-f>zz")
 
 -- telescope
 local builtin = require("telescope.builtin")
-map.set("n", "<leader>ff", builtin.find_files, {})
+map.set("n", "<A-f>", builtin.find_files, {})
 map.set("n", "<leader>fg", builtin.live_grep, {})
 map.set("n", "<leader>fb", builtin.buffers, {})
 -- map.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- file tree
 map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
-	silent = true,
-	desc = "toggle nvim-tree",
+  silent = true,
+  desc = "toggle nvim-tree",
 })
 
 -- code collapse (doesnt work tho)
@@ -52,8 +52,7 @@ map.set("n", "<A-e>", ":enew<CR>")
 map.set("n", "<A-h>", ":Telescope scope buffers<CR>")
 map.set("n", "<A-j>", ":bprev<CR>")
 map.set("n", "<A-é>", ":bnext<CR>")
-map.set("n", "<A-c>", ":w<CR>:bd<CR>", { silent = true })
-map.set("n", "<leader><A-c>", ":bd", { silent = true })
+map.set("n", "<A-c>", ":bd<CR>") -- will not close if buffer is unsaved
 
 -- more indentation
 map.set("v", ">", ">gv")
