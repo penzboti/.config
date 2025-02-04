@@ -1,4 +1,12 @@
+-- NOTE
+-- more bindings are present in these plugin files:
+-- gitsigns
+-- autocomplete
+-- telescope
+-- autoformat
+
 local map = vim.keymap
+
 -- moving
 map.set({ "n", "v" }, "j", "h")
 map.set({ "n", "v" }, "k", "j")
@@ -60,4 +68,14 @@ map.set("n", "<A-c>", ":bd<CR>") -- will not close if buffer is unsaved
 map.set("v", ">", ">gv")
 map.set("v", "<", "<gv")
 
+-- markdown
 map.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
+map.set("i", "<A-b>", "- [ ] ")
+
+-- live-server
+map.set("n", "<leader>ls", ":LiveServerToggle<CR>")
+
+-- hop
+map.set("n", "<leader>hw", ":HopWord<CR>")
+map.set("n", "<leader>ha", ":HopAnywhere<CR>")
+map.set("n", "<leader>hl", ":HopLine<CR>")

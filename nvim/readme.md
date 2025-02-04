@@ -1,11 +1,8 @@
 # todo
-- markdown preview (on linux it might be still broken)
-- treesitter on nixos (without installed c compiler)
+- treesitter on nixos (without installed c compiler) (and also no errors nowhere anytime)
 - scope.nvim save state
-- gitsings plugin error
-- idk what hop plugin does
 - lualine & tabline: file naming on top, remove from bottom; maybe move the command bar
-- move plugins to one file: commentary & todo; ufo & statuscol
-- some todo-s ```<leader>ft```
+- move similar plugins to one file: commentary & todo; ufo & statuscol
+- unmentioned todo-s ```<leader>ft``` (will be the default if the place for it is present)
 # info
 buffers are set up to function like traditional tabs

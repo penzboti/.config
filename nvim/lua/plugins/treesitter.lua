@@ -1,3 +1,4 @@
+-- FIX: treesitter as a whole
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",

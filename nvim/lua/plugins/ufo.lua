@@ -1,4 +1,5 @@
--- TODO: dont auto open fold on save (it has a bit of delay but still does it) (only lua?) (only windows??)
+-- TODO: dont auto open fold on save (it has a bit of delay but still does it)
+-- it is a formatter issue prob (auto formatting wrecks up the folding)
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}

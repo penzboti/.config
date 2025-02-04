@@ -1,3 +1,4 @@
+-- TODO: save state; so when i reopen my files are back; folder dependent
 return {
   "https://github.com/tiagovla/scope.nvim",
   dependencies = {
