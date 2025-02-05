@@ -40,6 +40,7 @@ map.set("n", "<leader>fg", builtin.live_grep, {})
 map.set("n", "<leader>fb", builtin.buffers, {})
 -- map.set("n", "<leader>fh", builtin.help_tags, {})
 map.set("n", "<leader>ft", ":TodoTelescope<CR>")
+map.set("n", "<leader>ts", builtin.treesitter, {})
 
 -- file tree
 map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {

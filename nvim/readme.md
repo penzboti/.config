@@ -1,5 +1,5 @@
 # todo
-- treesitter on nixos (without installed c compiler) (and also no errors nowhere anytime)
+- treesitter on nixos (without installed c compiler) (and also no errors nowhere anytime) MAYB
 - scope.nvim save state
 - lualine & tabline: file naming on top, remove from bottom; maybe move the command bar
 - move similar plugins to one file: commentary & todo; ufo & statuscol
