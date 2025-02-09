@@ -1,4 +1,9 @@
--- TODO: save state; so when i reopen my files are back; folder dependent
+vim.opt.sessionoptions = {
+  "buffers",
+  "tabpages",
+  "globals",
+}
+
 return {
   "https://github.com/tiagovla/scope.nvim",
   dependencies = {
