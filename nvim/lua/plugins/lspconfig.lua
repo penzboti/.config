@@ -116,7 +116,7 @@ return {
     local servers = {
       clangd = {},
       rust_analyzer = {},
-      ts_ls = {},
+      ts_ls = {}, -- js & ts
       lua_ls = {
         settings = {
           Lua = {
@@ -126,6 +126,8 @@ return {
           },
         },
       },
+      html = {},
+      cssls = {},
     }
 
     -- Ensure the servers and tools above are installed

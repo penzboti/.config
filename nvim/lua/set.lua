@@ -6,9 +6,9 @@ opt.relativenumber = true
 
 -- set tab size to 2 spaces
 local o = vim.o
-o.tabstop = 2
-o.softtabstop = 2
-o.shiftwidth = 2
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
 o.expandtab = true
 o.smartindent = true
 o.autoindent = true
