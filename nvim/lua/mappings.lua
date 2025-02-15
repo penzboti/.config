@@ -1,4 +1,4 @@
--- NOTE
+-- NOTE:
 -- more bindings are present in these plugin files:
 -- gitsigns
 -- autocomplete
@@ -14,7 +14,9 @@ map.set({ "n", "v" }, "l", "k")
 map.set({ "n", "v" }, "é", "l")
 
 -- basic
--- these are not instant? for some reason. and nowait doesnt work?
+-- TODO: these are not instant? for some reason. and nowait doesnt work?
+-- (also the terminal open bind)
+-- and its also not silent
 map.set("n", "<leader>w", ":w<enter>", { nowait = true, silent = true })
 map.set("n", "<leader>q", ":q<enter>")
 map.set("n", "<leader>pv", ":Ex<enter>")
@@ -48,7 +50,7 @@ map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
   desc = "toggle nvim-tree",
 })
 
--- code collapse (doesnt work tho)
+-- code collapse (does it work tho?)
 map.set("n", "zR", require("ufo").openAllFolds)
 map.set("n", "zM", require("ufo").closeAllFolds)
 
@@ -80,3 +82,9 @@ map.set("n", "<leader>ls", ":LiveServerToggle<CR>")
 map.set("n", "<leader>hw", ":HopWord<CR>")
 map.set("n", "<leader>ha", ":HopAnywhere<CR>")
 map.set("n", "<leader>hl", ":HopLine<CR>")
+
+-- terminal
+map.set("n", "<leader>t", ":terminal<CR>")
+map.set("t", "<Esc>", "<C-\\><C-n>")
+map.set("t", "<A-j>", "<C-\\><C-n>:bprev<CR>")
+map.set("t", "<A-é>", "<C-\\><C-n>:bnext<CR>")
