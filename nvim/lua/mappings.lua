@@ -45,17 +45,19 @@ map.set("n", "<leader>ft", ":TodoTelescope<CR>")
 map.set("n", "<leader>ts", builtin.treesitter, {})
 
 -- file tree
-map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
-  silent = true,
-  desc = "toggle nvim-tree",
-})
+-- map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
+--   silent = true,
+--   desc = "toggle nvim-tree",
+-- })
+vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>")
+vim.keymap.set("n", "<space>fB", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 
 -- code collapse (does it work tho?)
 map.set("n", "zR", require("ufo").openAllFolds)
 map.set("n", "zM", require("ufo").closeAllFolds)
 
 -- go back to dashboard
-map.set("n", "<leader>d", ":Dashboard<CR>")
+map.set("n", "<leader>d", ":lua Snacks.dashboard()<CR>")
 
 -- git
 map.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git: show status" })

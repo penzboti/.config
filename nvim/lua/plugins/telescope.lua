@@ -1,6 +1,10 @@
 return {
   "nvim-telescope/telescope.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzy-native.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-fzy-native.nvim",
+    "nvim-telescope/telescope-file-browser.nvim",
+  },
   config = function()
     require("telescope").setup({
       defaults = {
@@ -34,8 +38,25 @@ return {
           override_generic_sorter = false,
           override_file_sorter = true,
         },
+        file_browser = {
+          theme = "ivy",
+          respect_gitignore = false,
+          mappings = {
+            ["i"] = {
+              ["<A-n>"] = require("telescope").extensions.file_browser.actions.create,
+            },
+            ["n"] = {
+              ["n"] = require("telescope").extensions.file_browser.actions.create,
+              ["k"] = require("telescope.actions").move_selection_next,
+              ["l"] = require("telescope.actions").move_selection_previous,
+              ["j"] = require("telescope.actions").select_default,
+              ["c"] = require("telescope.actions").close,
+            },
+          },
+        },
       },
     })
     require("telescope").load_extension("fzy_native")
+    require("telescope").load_extension("file_browser")
   end,
 }

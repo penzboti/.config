@@ -1,3 +1,5 @@
+-- TODO: https://github.com/folke/persistence.nvim
+
 -- test autoload
 vim.api.nvim_create_user_command("Test", function()
   local sessions_path = vim.fn.stdpath("data") .. "\\sessions\\"
