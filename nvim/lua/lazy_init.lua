@@ -1,3 +1,5 @@
+-- TODO: you probably dont need to lazy load most of the plugins at the start.
+-- look into this.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({

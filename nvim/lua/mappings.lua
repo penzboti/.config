@@ -1,3 +1,6 @@
+-- TODO: which_key
+-- or just add descriptions to all of them.
+-- you will probably forget some of them
 -- NOTE:
 -- more bindings are present in these plugin files:
 -- gitsigns
@@ -14,13 +17,11 @@ map.set({ "n", "v" }, "l", "k")
 map.set({ "n", "v" }, "é", "l")
 
 -- basic
--- TODO: these are not instant? for some reason. and nowait doesnt work?
--- (also the terminal open bind)
--- and its also not silent
-map.set("n", "<leader>w", ":w<enter>", { nowait = true, silent = true })
+-- to keep them instant, make sure you dont set a bind like <leader>ws so that it waits for it
+map.set("n", "<leader>w", ":w<enter>")
 map.set("n", "<leader>q", ":q<enter>")
 map.set("n", "<leader>pv", ":Ex<enter>")
-map.set("n", "<leader>n", ":new<CR>")
+map.set("n", "<leader>n", ":enew<CR>")
 
 -- move lines
 map.set("n", "<A-k>", ":m .+1<CR>==")
@@ -43,14 +44,10 @@ map.set("n", "<leader>fb", builtin.buffers, {})
 -- map.set("n", "<leader>fh", builtin.help_tags, {})
 map.set("n", "<leader>ft", ":TodoTelescope<CR>")
 map.set("n", "<leader>ts", builtin.treesitter, {})
+map.set("n", "<leader>fs", ":Telescope persisted<CR>")
 
--- file tree
--- map.set("n", "<A-s>", require("nvim-tree.api").tree.toggle, {
---   silent = true,
---   desc = "toggle nvim-tree",
--- })
-vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>")
-vim.keymap.set("n", "<space>fB", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader>e", ":Telescope file_browser<CR>")
+vim.keymap.set("n", "<A-s>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 
 -- code collapse (does it work tho?)
 map.set("n", "zR", require("ufo").openAllFolds)
@@ -86,7 +83,21 @@ map.set("n", "<leader>ha", ":HopAnywhere<CR>")
 map.set("n", "<leader>hl", ":HopLine<CR>")
 
 -- terminal
-map.set("n", "<leader>t", ":terminal<CR>")
+map.set("n", "<leader>tn", ":terminal<CR>")
 map.set("t", "<Esc>", "<C-\\><C-n>")
 map.set("t", "<A-j>", "<C-\\><C-n>:bprev<CR>")
 map.set("t", "<A-é>", "<C-\\><C-n>:bnext<CR>")
+
+-- sessions
+vim.keymap.set("n", "<leader>qs", function()
+  require("persistence").load()
+end) -- load the session for the current directory
+vim.keymap.set("n", "<leader>qS", function()
+  require("persistence").select()
+end) -- select a session to load
+vim.keymap.set("n", "<leader>ql", function()
+  require("persistence").load({ last = true })
+end) -- load the last session
+vim.keymap.set("n", "<leader>qd", function()
+  require("persistence").stop()
+end) -- stop Persistence => session won't be saved on exit

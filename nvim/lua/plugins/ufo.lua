@@ -1,6 +1,7 @@
--- TODO: dont auto open fold after save
+-- TODO dont auto open fold after save
 -- according to my testing, it only happens on save with stylua
 -- it has never happened in rust, markdown, html, js
+-- if its only lua i might be able to live with it
 
 -- cool arrow and line number fold indicator
 local handler = function(virtText, lnum, endLnum, width, truncate)
