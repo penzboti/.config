@@ -52,18 +52,18 @@ return {
   },
   keys = {
     {
-      "<leader>e",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "File Explorer",
-    },
-    {
       "<leader>gg",
       function()
         Snacks.lazygit()
       end,
       desc = "Lazygit",
+    },
+    {
+      "<leader>nh",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Notification history",
     },
   },
 }

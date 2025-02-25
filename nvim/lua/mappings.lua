@@ -87,17 +87,3 @@ map.set("n", "<leader>tn", ":terminal<CR>")
 map.set("t", "<Esc>", "<C-\\><C-n>")
 map.set("t", "<A-j>", "<C-\\><C-n>:bprev<CR>")
 map.set("t", "<A-é>", "<C-\\><C-n>:bnext<CR>")
-
--- sessions
-vim.keymap.set("n", "<leader>qs", function()
-  require("persistence").load()
-end) -- load the session for the current directory
-vim.keymap.set("n", "<leader>qS", function()
-  require("persistence").select()
-end) -- select a session to load
-vim.keymap.set("n", "<leader>ql", function()
-  require("persistence").load({ last = true })
-end) -- load the last session
-vim.keymap.set("n", "<leader>qd", function()
-  require("persistence").stop()
-end) -- stop Persistence => session won't be saved on exit

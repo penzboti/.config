@@ -44,6 +44,7 @@ return {
           mappings = {
             ["i"] = {
               ["<A-n>"] = require("telescope").extensions.file_browser.actions.create,
+              ["<A-s>"] = require("telescope.actions").close,
             },
             ["n"] = {
               ["n"] = require("telescope").extensions.file_browser.actions.create,
