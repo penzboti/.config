@@ -1,0 +1,66 @@
+theme = "rose_pine"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+cursorline = true
+# Show a ruler at column 120
+rulers = [100]
+# Force the theme to show colors
+true-color = true
+# Minimum severity to show a diagnostic after the end of a line
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error" # Show inline diagnostics when the cursor is on the line
+other-lines = "disable" # Don't expand diagnostics unless the cursor is on the line
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "╎"
+render = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
+
+[keys.normal]
+j = "move_char_left"
+k = "move_visual_line_down"
+l = "move_visual_line_up"
+"é" = "move_char_right"
+"," = "collapse_selection"
+"ret" = ["open_below","normal_mode","move_visual_line_up"]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+A-x = "extend_to_line_bounds"
+X = "select_line_above"
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+"C-space" = ":write"
+
+[keys.normal.g]
+j = "goto_line_start"
+"é" = "goto_line_end"
+
+[keys.select]
+# j = "move_char_left"
+# k = "move_visual_line_down"
+# l = "move_visual_line_up"
+# "é" = "move_char_right"
+A-x = "extend_to_line_bounds"
+X = "select_line_above"
+
+[keys.select.g]
+j = "goto_line_start"
+"é" = "goto_line_end"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
