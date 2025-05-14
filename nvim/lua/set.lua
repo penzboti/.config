@@ -20,3 +20,5 @@ opt.incsearch = true -- incremental search
 opt.termguicolors = true
 
 opt.conceallevel = 2 -- obsidian.nvim
+
+vim.opt.shell = "pwsh.exe"

@@ -1,15 +1,17 @@
 theme = "rose_pine"
 
+# EDITOR
+
 [editor]
 line-number = "relative"
-bufferline = "multiple"
+bufferline = "always"
+color-modes = true
 cursorline = true
-# Show a ruler at column 120
 rulers = [100]
-# Force the theme to show colors
 true-color = true
-# Minimum severity to show a diagnostic after the end of a line
-end-of-line-diagnostics = "hint"
+end-of-line-diagnostics = "hint" # Minimum severity to show a diagnostic after the end of a line
+# https://github.com/helix-editor/helix/discussions/6209 well its not goint to be unix compliant this way
+shell = ["pwsh.exe","-NoLogo","-NoProfile","-NoProfileLoadTime","-Command","$PSStyle.OutputRendering='PlainText';"]
 
 [editor.inline-diagnostics]
 cursor-line = "error" # Show inline diagnostics when the cursor is on the line
@@ -27,6 +29,8 @@ render = true
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
 
+# KEYS
+
 [keys.normal]
 j = "move_char_left"
 k = "move_visual_line_down"
@@ -43,11 +47,49 @@ X = "select_line_above"
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 "C-space" = ":write"
 
+# https://github.com/helix-editor/helix/discussions/5764
+"A-k" = [
+"extend_to_line_bounds",
+"delete_selection",
+"paste_after",
+"select_mode",
+"goto_line_start",
+"normal_mode",
+] # Move line(s) down
+"A-l" = [
+"extend_to_line_bounds",
+"delete_selection",
+"move_line_up",
+"paste_before",
+"flip_selections",
+] # Move line(s) up
+
+# noselect
+C-y = [":new", ":insert-output yazi", ":buffer-close!", ":redraw"]
+# https://github.com/sxyazi/yazi/pull/2461
+# needs nightly (means bulit it from source) from here
+# windows
+# C-y = [
+#   ':sh del C:\users\penzboti\yazi.txt',
+#   ':insert-output yazi.exe --chooser-file=C:\Users\penzboti\yazi.txt',
+#   ':open %sh{type C:\Users\penzboti\yazi.txt}',
+#   ':redraw',
+# ]
+# linux
+# C-y = [
+#   ':sh rm -f /tmp/unique-file',
+#   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+#   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+#   ':open %sh{cat /tmp/unique-file}',
+#   ':redraw',
+# ]
+
 [keys.normal.g]
 j = "goto_line_start"
 "é" = "goto_line_end"
 
 [keys.select]
+# dont know how to change this, since no docs
 # j = "move_char_left"
 # k = "move_visual_line_down"
 # l = "move_visual_line_up"
