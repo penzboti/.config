@@ -87,3 +87,25 @@ map.set("n", "<leader>tn", ":terminal<CR>")
 map.set("t", "<Esc>", "<C-\\><C-n>")
 map.set("t", "<A-j>", "<C-\\><C-n>:bprev<CR>")
 map.set("t", "<A-é>", "<C-\\><C-n>:bnext<CR>")
+
+-- error lines
+map.set("n", "<Leader>lt", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+-- hover mouse (but with a keyboard)
+map.set("n", "<leader>fd", ":EagleWin<CR>", { noremap = true, silent = true })
+
+-- snippets
+-- TODO: what do these do (the commented out ones)
+-- map.set({ "i" }, "<C-K>", function()
+--   ls.expand()
+-- end, { silent = true })
+map.set({ "i", "s" }, "<C-L>", function()
+  require("luasnip").jump(1)
+end, { silent = true })
+map.set({ "i", "s" }, "<C-J>", function()
+  require("luasnip").jump(-1)
+end, { silent = true })
+-- map.set({ "i", "s" }, "<C-E>", function()
+--   if ls.choice_active() then
+--     ls.change_choice(1)
+--   end
+-- end, { silent = true })
