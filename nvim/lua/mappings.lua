@@ -42,7 +42,7 @@ map.set("n", "<leader>ff", builtin.find_files, {})
 map.set("n", "<leader>fg", builtin.live_grep, {})
 map.set("n", "<leader>fb", builtin.buffers, {})
 -- map.set("n", "<leader>fh", builtin.help_tags, {})
-map.set("n", "<leader>ft", ":TodoTelescope<CR>")
+map.set("n", "<leader>ft", ":TodoTelescope<CR>") --TODO: keywords: https://github.com/folke/todo-comments.nvim?tab=readme-ov-file#-usage
 map.set("n", "<leader>ts", builtin.treesitter, {})
 map.set("n", "<leader>fs", ":Telescope persisted<CR>")
 

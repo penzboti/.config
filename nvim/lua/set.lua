@@ -5,10 +5,11 @@ opt.nu = true
 opt.relativenumber = true
 
 -- Q: set tab size to 2 spaces
+-- lets test it!
 local o = vim.o
-o.tabstop = 4
-o.softtabstop = 4
-o.shiftwidth = 4
+o.tabstop = 2
+o.softtabstop = 2
+o.shiftwidth = 2
 o.expandtab = true
 o.smartindent = true
 o.autoindent = true
@@ -24,4 +25,4 @@ opt.conceallevel = 2 -- obsidian.nvim
 
 -- it used cmd on windows (not good)
 -- this approach is also not cross-compatable
-vim.opt.shell = "pwsh.exe"
+-- vim.opt.shell = "pwsh.exe" -- not for linux, please; Q: add pwsh alias?

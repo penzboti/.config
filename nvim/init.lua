@@ -3,6 +3,7 @@
 
 vim.g.mapleader = " "
 
+require("utils")
 require("lazy_init")
 require("set")
 require("formatting")

@@ -41,11 +41,20 @@ return {
           ttl = 5 * 60,
           indent = 3,
         },
-        -- TODO: a chafa section would be cool (picture in terminal)
         { section = "startup" },
+        {
+          pane = 2,
+          section = "terminal",
+          -- TODO: cross platform here
+          cmd = "chafa ~/Pictures/pfp.jpg --format symbols --symbols vhalf; sleep .1",
+          height = 30,
+          -- width does not change the split point, even though it should
+          width = 45,
+          padding = 1,
+        },
       },
     },
-    image = { enabled = true }, -- mayb doesnt work
+    -- image = { enabled = true }, -- mayb doesnt work
     notifier = { enabled = true },
     quickfile = { enabled = true }, -- load initial file faster
     lazygit = { enabled = true }, -- needs exe

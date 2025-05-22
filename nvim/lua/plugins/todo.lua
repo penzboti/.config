@@ -11,12 +11,12 @@ return {
     colors = {
       --defaults
       -- TODO: change colors to my liking
-      error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-      warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" }, --hack&warn
+      error = { "DiagnosticError", "ErrorMsg", "#DC2626" }, --bug&fix
+      warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" }, --hack&warn(ing)
       info = { "DiagnosticInfo", "#2563EB" }, --todo
-      hint = { "DiagnosticHint", "#10B981" }, --note
+      hint = { "DiagnosticHint", "#10B981" }, --note&info&perf
       default = { "Identifier", "#7C3AED" },
-      test = { "Identifier", "#FF00FF" },
+      test = { "Identifier", "#FF00FF" }, --test
       --new
       question = { "#0000FF" },
     },

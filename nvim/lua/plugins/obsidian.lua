@@ -1,19 +1,4 @@
-local sync = function(name)
-  local sys = vim.uv.os_uname()
-  local folder = ""
-
-  if sys.sysname == "Windows_NT" then
-    folder = "E:/obsidian/"
-    -- TODO: this linux name is incomplete
-  elseif sys.sysname == "Linux_" then
-    folder = "~/obsidian/"
-  else
-    return "ERROR"
-  end
-
-  local retur = folder .. name
-  return retur
-end
+-- Q: if you can disable the text on top of every markdown(obsidian) file
 
 return {
   "epwalsh/obsidian.nvim",
@@ -30,7 +15,7 @@ return {
       {
         name = "cross-platform-school",
         path = function()
-          return sync("school")
+          return Crossplatform("school")
         end,
       },
       {
