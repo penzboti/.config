@@ -1,3 +1,8 @@
+# its weird coming from vim. maybe a vim-motions plugin, or a fork (could i make that?)
+# some extra switching talk: https://www.reddit.com/r/HelixEditor/comments/1bq8w7s/switching_to_helix/
+# in there is this gem: https://github.com/DoctorRyner/helix; adds some extra features to helix (but not up-to-date w/ nigtly)
+# https://www.youtube.com/playlist?list=PL4AR7tbGuBH5AzV0tPpTfYgGIF5vk3HN2 helix tutorial & config yt series
+
 theme = "rose_pine"
 
 # EDITOR
@@ -10,7 +15,9 @@ cursorline = true
 rulers = [100]
 true-color = true
 end-of-line-diagnostics = "hint" # Minimum severity to show a diagnostic after the end of a line
-# https://github.com/helix-editor/helix/discussions/6209 well its not goint to be unix compliant this way
+# https://github.com/helix-editor/helix/discussions/6209
+# well it's not going to be cross-compatible this way
+# time to write a polyglot program (maybe?)
 shell = ["pwsh.exe","-NoLogo","-NoProfile","-NoProfileLoadTime","-Command","$PSStyle.OutputRendering='PlainText';"]
 
 [editor.inline-diagnostics]
@@ -30,6 +37,7 @@ render = true
 left = ["mode", "spinner", "version-control", "file-name"]
 
 # KEYS
+# defaults: https://docs.helix-editor.com/keymap.html
 
 [keys.normal]
 j = "move_char_left"
@@ -46,6 +54,9 @@ A-x = "extend_to_line_bounds"
 X = "select_line_above"
 C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 "C-space" = ":write"
+# alt-gr keybinds dont work (WINDOWS), so you have to re-add them to alt keybinds
+"A-í" = "unindent"
+"A-y" = "indent"
 
 # https://github.com/helix-editor/helix/discussions/5764
 "A-k" = [
@@ -64,7 +75,7 @@ C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 "flip_selections",
 ] # Move line(s) up
 
-# noselect
+# yazi file explorer works, but you cannot open files on stable
 C-y = [":new", ":insert-output yazi", ":buffer-close!", ":redraw"]
 # https://github.com/sxyazi/yazi/pull/2461
 # needs nightly (means bulit it from source) from here
@@ -76,6 +87,7 @@ C-y = [":new", ":insert-output yazi", ":buffer-close!", ":redraw"]
 #   ':redraw',
 # ]
 # linux
+# this is not a cross-platform config file there is no way
 # C-y = [
 #   ':sh rm -f /tmp/unique-file',
 #   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
@@ -90,6 +102,7 @@ j = "goto_line_start"
 
 [keys.select]
 # dont know how to change this, since no docs
+# it even seems like you can't change this (yet)
 # j = "move_char_left"
 # k = "move_visual_line_down"
 # l = "move_visual_line_up"
@@ -106,3 +119,5 @@ up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
+
+# picker doesn't have rebinds yet
