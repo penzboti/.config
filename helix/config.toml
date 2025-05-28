@@ -1,13 +1,15 @@
-# its weird coming from vim. maybe a vim-motions plugin, or a fork (could i make that?)
 # some extra switching talk: https://www.reddit.com/r/HelixEditor/comments/1bq8w7s/switching_to_helix/
 # in there is this gem: https://github.com/DoctorRyner/helix; adds some extra features to helix (but not up-to-date w/ nigtly)
 # https://www.youtube.com/playlist?list=PL4AR7tbGuBH5AzV0tPpTfYgGIF5vk3HN2 helix tutorial & config yt series
+# plugin branch: https://github.com/helix-editor/helix/pull/8675
+# evil helix: helix with vim bindings: https://github.com/usagi-flow/evil-helix
 
 theme = "rose_pine"
 
 # EDITOR
 
 [editor]
+evil = true # for evil helix (maybe normal helix doesn't cry?)
 line-number = "relative"
 bufferline = "always"
 color-modes = true

@@ -1,18 +1,22 @@
--- TODO: rewrite this to a "dictionary"; windows: this folder, linux: this folder
-Crossplatform = function(name)
-  -- also this function relies on if i only have one windows machine
+---@param dictionary {linux?:string, windows?: string}
+---@return string
+Crossplatform = function(dictionary)
   local sys = vim.uv.os_uname()
-  local folder = ""
   local sysname = sys.sysname
 
   if sysname == "Windows_NT" then
-    folder = "E:/obsidian/"
+    return dictionary.windows
   elseif sysname == "Linux" then
-    folder = "~/obsidian/"
+    return dictionary.linux
   else
-    return "ERROR: The OS '" .. sys.sysname .. "' not found"
+    error("The OS '" .. sysname .. "' not found")
   end
+end
 
+ObsidianPath = function(name)
+  local windowspath = "E:/obsidian/"
+  local linuxpath = "~/obsidian/"
+  local folder = Crossplatform({ windows = windowspath, linux = linuxpath })
   local response = folder .. name
   return response
 end

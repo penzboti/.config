@@ -44,13 +44,17 @@ return {
         { section = "startup" },
         {
           pane = 2,
+          -- ISSUE: https://github.com/folke/snacks.nvim/issues/1917
           section = "terminal",
-          -- TODO: cross platform here
-          cmd = "chafa ~/Pictures/pfp.jpg --format symbols --symbols vhalf; sleep .1",
+          cmd = "chafa " .. Crossplatform({
+            linux = "~/Pictures/pfp.jpg",
+            windows = "'C:\\Users\\penzboti\\Pictures\\important pics\\pfp.jpg'",
+          }) .. " --format symbols --symbols vhalf; sleep .1",
           height = 30,
           -- width does not change the split point, even though it should
           width = 45,
           padding = 1,
+          -- ttl = 3600 * 10, -- time until the command must return an output?
         },
       },
     },

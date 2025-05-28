@@ -1,4 +1,5 @@
 -- Q: if you can disable the text on top of every markdown(obsidian) file
+-- it might have to do sg with the formatter & templates
 
 return {
   "epwalsh/obsidian.nvim",
@@ -15,7 +16,7 @@ return {
       {
         name = "cross-platform-school",
         path = function()
-          return Crossplatform("school")
+          return ObsidianPath("school")
         end,
       },
       {
