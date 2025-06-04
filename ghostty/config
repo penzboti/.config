@@ -1,0 +1,5 @@
+command = /usr/bin/env fish --login --interactive
+# preview themes: ghostty +list_themes
+# i don't think themes are that relevant in fish shell
+theme = 0x96f
+background = 000000

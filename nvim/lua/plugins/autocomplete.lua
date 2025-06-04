@@ -109,7 +109,6 @@ return {
         { name = "luasnip" },
         { name = "path" },
         { name = "render-markdown" },
-        { name = "omnisharp" }, -- wdym by not autocompleteing Console, the most BASIC CLASS IN C#; it works tho
       },
     })
   end,
