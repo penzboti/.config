@@ -1,0 +1,94 @@
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+//
+// !
+// https://github.com/zed-industries/zed/issues/21358
+// this issue is mine and is not yet resolved after half a year (as of 2025/06)
+[
+  {
+    "bindings": {
+      "ctrl-l": null,
+      "ctrl-k": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-o": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-tab": "pane::ActivatePrevItem",
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
+  },
+  {
+    // meh could be better context
+    "context": "VimControl",
+    "bindings": {
+      "ctrl-e": "project_panel::ToggleFocus",
+      "space w": "workspace::Save",
+      "space q": "pane::CloseActiveItem",
+      "ctrl-o ctrl-p": "terminal_panel::ToggleFocus",
+      "ctrl-shift-o ctrl-shift-p": "workspace::NewTerminal",
+      "alt-q": "workspace::CloseAllDocks"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-e": "workspace::CloseAllDocks"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-o ctrl-p": "workspace::CloseAllDocks",
+      "ctrl-shift-o ctrl-shift-p": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "j": "vim::Left",
+      "k": "vim::Down",
+      "l": "vim::Up",
+      "é": "vim::Right",
+      "alt-l": "editor::MoveLineUp",
+      "alt-k": "editor::MoveLineDown"
+    }
+  },
+  {
+    "context": "ProjectPanel && !editing",
+    "bindings": {
+      "alt-q": "workspace::CloseAllDocks",
+      "n": "project_panel::NewFile",
+      "shift-n": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "l": "menu::SelectPrev",
+      "k": "menu::SelectNext",
+      "shift-é": "project_panel::OpenPermanent",
+      // "é": ["workspace::SendKeystrokes", "shift-é alt-q"]
+      // DOESNT CLOSE PANEL AFTER OPENING (SAD)
+      "é": "project_panel::OpenPermanent"
+    }
+  },
+  {
+    // THESE DONT WORK YET
+    "context": "Editor && showing_completions && vim_mode == insert",
+    "bindings": {
+      "ctrl-l": "menu::SelectPrev",
+      "ctrl-k": "menu::SelectNext",
+      "ctrl-eacute": "menu::Confirm"
+      // "alt-l": "menu::SelectPrev",
+      // "alt-k": "menu::SelectNext",
+      // "alt-é": "menu::Confirm",
+    }
+  }
+]

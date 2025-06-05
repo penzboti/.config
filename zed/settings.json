@@ -1,0 +1,36 @@
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+//
+// !
+// my comments come here
+{
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Mocha",
+    "dark": "One Dark"
+  },
+  "relative_line_numbers": true,
+  "scrollbar": { "show": "never" },
+  "terminal": {
+    "dock": "left"
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "ignore_system_version": true
+      }
+    }
+  },
+  "languages": {
+    "Rust": {
+      "format_on_save": "off"
+    }
+  }
+}
