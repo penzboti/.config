@@ -1,5 +1,4 @@
 -- TODO: which_key
--- or just add descriptions to all of them.
 -- you will probably forget some of them
 -- NOTE:
 -- more bindings are present in these plugin files:
@@ -71,7 +70,12 @@ map.set("v", ">", ">gv")
 map.set("v", "<", "<gv")
 
 -- markdown
-map.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
+map.set("n", "<leader>md", function()
+  local cur_buf_filepath = vim.fn.expand("%:p")
+  local command = Crossplatform({ windows = "explorer", linux = "open" }) -- in theory it should be 'open'
+  local full_command = ":!" .. command .. " file://" .. cur_buf_filepath
+  vim.cmd(full_command)
+end)
 map.set("i", "<A-b>", "- [ ] ")
 
 -- live-server

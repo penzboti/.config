@@ -4,3 +4,4 @@ yazi/flavors/
 yazi/package.toml
 fish/fish_variables
 fish/conf.d
+*.lnk
