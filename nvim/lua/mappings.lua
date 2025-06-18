@@ -72,7 +72,7 @@ map.set("v", "<", "<gv")
 -- markdown
 map.set("n", "<leader>md", function()
   local cur_buf_filepath = vim.fn.expand("%:p")
-  local command = Crossplatform({ windows = "explorer", linux = "open" }) -- in theory it should be 'open'
+  local command = Crossplatform({ windows = "explorer", linux = "xdg-open" }) -- in theory it should be 'open'
   local full_command = ":!" .. command .. " file://" .. cur_buf_filepath
   vim.cmd(full_command)
 end)

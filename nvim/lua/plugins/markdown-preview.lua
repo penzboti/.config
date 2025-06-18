@@ -1,5 +1,6 @@
 -- i would use the Markdown Viewer extension (both chrome and firefox)
 -- https://github.com/simov/markdown-viewer
+-- theme: holiday
 -- i custom commanded it (open file in browser);
 -- mappings.lua; markdown; <space>md
 return {}
