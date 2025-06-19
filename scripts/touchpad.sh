@@ -14,7 +14,7 @@ if [ -f "$statusfile" ] ;then
   if [[ $ret != "ok" ]] ;then error=true
   else
     rm "$statusfile"
-    notify-send "enabled touchpad"
+    notify-send touchpad enabled 
   fi
 else
   ret=$(hyprctl -r -- keyword "$variable" false)
@@ -22,7 +22,7 @@ else
   if [[ $ret != "ok" ]] ;then error=true
   else
     touch "$statusfile"
-    notify-send "disabled touchpad"
+    notify-send touchpad disabled 
     fi
 fi
 
