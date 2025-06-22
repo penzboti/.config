@@ -1,11 +1,17 @@
 #!/bin/bash
 # INFO: https://www.reddit.com/r/hyprland/comments/1bqohmd/dynamically_enabledisable_device/
 
-device="$(hyprctl devices | grep touchpad | sed '/2-synaptics-touchpad/d; s/.*	//')"
+alldevices=$(hyprctl devices 2>&1)
+# hyprland check
+if [[ $(echo "$alldevices" | sed 's/.*command not found/no/') == "no" ]] ;then
+  echo "hyprland is not installed"
+  exit 1
+fi
+
+device="$(echo "$alldevices" | grep touchpad | sed '/2-synaptics-touchpad/d; s/.*	//')"
 variable="device[${device}]:enabled"
 
 statusfile="/home/penzboti/.cache/touchpad.status"
-
 error=false
 
 if [ -f "$statusfile" ] ;then
@@ -16,6 +22,7 @@ if [ -f "$statusfile" ] ;then
     rm "$statusfile"
     notify-send touchpad enabled 
   fi
+
 else
   ret=$(hyprctl -r -- keyword "$variable" false)
   echo $ret
