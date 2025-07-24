@@ -95,7 +95,7 @@ map.set("t", "<A-é>", "<C-\\><C-n>:bnext<CR>")
 -- error lines
 map.set("n", "<Leader>lt", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 -- hover mouse (but with a keyboard)
-map.set("n", "<leader>fd", ":EagleWin<CR>", { noremap = true, silent = true })
+map.set("n", "<leader>hh", ":EagleWin<CR>", { noremap = true, silent = true })
 
 -- snippets
 -- TODO: what do these do (the commented out ones)
