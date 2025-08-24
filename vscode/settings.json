@@ -1,0 +1,258 @@
+// maybe also arrange this file lol
+{
+  "github.gitAuthentication": false,
+  "git.countBadge": "off",
+  "git.decorations.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.fontSize": 18,
+  "workbench.iconTheme": "moxer-icons",
+  "material-icon-theme.folders.color": "#42a5f5",
+  "editor.linkedEditing": true,
+  "workbench.startupEditor": "none",
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.wordWrap": "on",
+"workbench.colorTheme": "Ayu Mirage Plus",
+  "editor.lineNumbers": "relative",
+  "diffEditor.renderSideBySide": false,
+  "git.confirmSync": false,
+  "explorer.confirmDelete": false,
+  "git.suggestSmartCommit": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.productIconTheme": "fluent-icons",
+  "editor.stickyScroll.enabled": true,
+  "git.openRepositoryInParentFolders": "always",
+  "python.defaultInterpreterPath": "C:\\Program Files\\Python311\\python.exe",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.autohide": true,
+  "editor.minimap.scale": 2,
+
+// --- start of vscodevim ---
+  "vim.camelCaseMotion.enable": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.foldfix": true,
+  "vim.history": 69,
+  "vim.shell": "C:\\Users\\penzboti\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\System Tools\\Command Prompt.lnk",
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    //! stolen from https://github.com/Melkeydev/vscode_bindings
+    // NAVIGATION
+    // vertical-split by https://stackoverflow.com/questions/43304791/vscode-prevent-split-editor-to-open-same-file-left-right
+    { "before": ["leader", "n"], "commands": ["workbench.action.moveEditorToNextGroup"] },
+    { "before": ["leader", "b"], "commands": ["workbench.action.moveEditorToPreviousGroup"] },
+
+    // panes
+    {
+      "before": ["leader", "j"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    // {
+    //   "before": ["leader", "k"],
+    //   "commands": ["workbench.action.focusBelowGroup"]
+    // },
+    // {
+    //   "before": ["leader", "l"],
+    //   "commands": ["workbench.action.focusAboveGroup"]
+    // },
+    {
+      "before": ["leader", "é"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    // NICE TO HAVE
+    { "before": ["leader", "w"], "commands": [":w"] },
+    { "before": ["leader", "q"], "commands": [":q!"] },
+    { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    //! back to own
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["L"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    {
+      "before": ["j"],
+      "after": ["h"]
+    },
+    {
+      "before": ["k"],
+      "after": ["j"]
+    },
+    {
+      "before": ["l"],
+      "after": ["k"]
+    },
+    {
+      "before": ["é"],
+      "after": ["l"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<C-f>"],
+      "after": ["<C-f>", "z", "z"]
+    },
+    {
+      "before": ["<C-b>"],
+      "after": ["<C-b>", "z", "z"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation",]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<tab>"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<S-tab>"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["h"]
+    },
+    {
+      "before": ["k"],
+      "after": ["j"]
+    },
+    {
+      "before": ["l"],
+      "after": ["k"]
+    },
+    {
+      "before": ["é"],
+      "after": ["l"]
+    },
+  ],
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j"],
+      "after": ["h"]
+    },
+    {
+      "before": ["k"],
+      "after": ["j"]
+    },
+    {
+      "before": ["l"],
+      "after": ["k"]
+    },
+    {
+      "before": ["é"],
+      "after": ["l"]
+    },
+  ],
+  "vim.leader": "<space>",
+// --- end of vscodevim ---
+
+  "editor.minimap.enabled": false,
+  "zenMode.hideLineNumbers": false,
+  "update.showReleaseNotes": false,
+  "workbench.layoutControl.enabled": false,
+  "terminal.integrated.env.windows": {},
+  "gutterpreview.showImagePreviewOnGutter": false,
+  "liveServer.settings.NoBrowser": true,
+  "ayu-mirage-plus.addTheme": [
+    {
+      "name": "",
+      "colors": {
+        "themeColor": "#bbffaa",
+        "foreground": "#000000",
+        "border": "#bbffaa34",
+        "highlight": "#8cf173"
+      }
+    }
+  ],
+  "rust-analyzer.debug.sourceFileMap": "auto",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.tabSizing": "fixed",
+  "zenMode.showTabs": "none",
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
+  // apc doesn't work
+  "apc.menubar.compact": true,
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "titleBarOverlay": {
+      "color": "#2f3241",
+      "symbolColor": "#74b1be",
+      "height": 60
+    },
+  },
+  "apc.imports": [
+    "/E:/apps/vscode-powerline/powerline.css",
+    // {
+    //   "rel": "stylesheet",
+    //   // "async":"async",
+    //   "href": "https://raw.githubusercontent.com/penzboti/vscode-powerline/master/powerline.css"
+    // },
+  ],
+  "apc.stylesheet": {
+    //? try to hide the "explorer" text it some way
+    // ".sidebar > .title": "display: none !important;",
+    // ".split-view-view .visible": "background-color: rgb(31, 36, 48); !important;",
+    // or
+    // ".title-label": "display: none !important;",
+    // "workbench.parts.statusbar": "background-color: red !important;",
+    "workbench.parts.sidebar": "height: 100vh !important;",
+  },
+  "apc.font.family": "JetBrains Mono",
+  "apc.monospace.font.family": "JetBrains Mono",
+  // so we replacing it
+  "custom-ui-style.electron": {
+    // although this is not working
+    "frame": false,
+  },
+  // nor is this
+  "custom-ui-style.font.monospace": "JetBrainsMono Nerd Font Mono",
+  "custom-ui-style.external.imports": [
+    "file://E:/apps/vscode-powerline/powerline.css",
+  ],
+
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "search.quickOpen.history.filterSortOrder": "recency",
+  "task.quickOpen.history": 10,
+  "files.exclude": {
+    "**/.git": true,
+    "**/Cargo.lock": true,
+    "**/target": true,
+    "**/node_modules": true,
+    "**/.gitignore": true
+  },
+  "editor.scrollbar.horizontal": "hidden",
+  "window.titleBarStyle": "custom",
+  "workbench.activityBar.location": "hidden",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.fontSize": 12,
+  "editor.rename.enablePreview": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "rust-analyzer.cargo.buildScripts.rebuildOnSave": false,
+  "rust-analyzer.cargo.buildScripts.invocationLocation": "root",
+  "rust-analyzer.cargo.buildScripts.enable": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  // and also i don't really like how tabs look, they feel cramped for some reason
+  // potential fix: https://github.com/wesbos/hot-tips/blob/main/vscode-custom-css-inject/custom.css
+}
