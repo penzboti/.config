@@ -1,7 +1,7 @@
 [manager]
 prepend_keymap = [
-  { on = "j", run = "leave", desc = "move" },
-  { on = "k", run = "arrow next", desc = "move" },
-  { on = "l", run = "arrow prev", desc = "move" },
-  { on = "é", run = "enter", desc = "move" },
+  { on = "h", run = "leave", desc = "move left" },
+  { on = "j", run = "arrow next", desc = "move down" },
+  { on = "k", run = "arrow prev", desc = "move up" },
+  { on = "l", run = "enter", desc = "move right" },
 ]
