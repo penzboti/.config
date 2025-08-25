@@ -5,6 +5,8 @@
 - fix neovim terminal stuttering (when screen is full)
 - ?scope.nvim save state (i have no idea what this means now)
 - install checkmate.nvim (markdown checkbox plugin)
+- which-key.nvim
+- snacks dashboard cat picture works now?
 # info
 buffers are set up to function like traditional tabs
 # shada error

@@ -36,5 +36,6 @@
     // i can't set it to 'h' because then i can't write commit message
     // if i set it, then escape gets unbounded
     // not always shown on the keybind bar
-    exit_popup: Some(( code: Char('h'), modifiers: "CONTROL" )),
+    exit_popup: Some(( code: Char('h'), modifiers: "ALT" )),
+    stage_unstage_item: Some(( code: Char('l'), modifiers: "ALT" ))
 )
