@@ -1,0 +1,25 @@
+"use_nerdfont" = true
+"notify" = false # this notifies about song changes
+
+[keybindings]
+"Space" = "playpause"
+"p" = "queue"
+"Shift+p" = "move playing"
+
+[theme]
+background = "#181818"
+primary = "#FFFFFF"
+secondary = "#DCDCDC"
+title = "#FFE600"
+playing = "#FF0000"
+playing_selected = "#BE8C00"
+playing_bg = "#181818"
+highlight = "#FFCB00"
+highlight_bg = "#000000"
+error = "#FFE4E4"
+error_bg = "#A50000"
+statusbar = "#000000"
+statusbar_progress = "#FFBC00"
+statusbar_bg = "#E6AA00"
+cmdline = "#CBFFDE"
+cmdline_bg = "#444444"
