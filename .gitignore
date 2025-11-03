@@ -7,3 +7,4 @@ fish/conf.d
 *.lnk
 scripts/fun
 ncspot/userstate.cbor
+helix/external-snippets/
