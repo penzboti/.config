@@ -6,8 +6,6 @@
 # https://github.com/helix-editor/helix/blob/master/languages.toml # lsp
 # https://docs.helix-editor.com/keymap.html # current keymap
 
-# IMPORTANT: this is not a cross-platform config, make sure to edit the platform specific settings
-
 theme = "merionette"
 
 # EDITOR
@@ -42,13 +40,6 @@ left = ["mode", "spinner", "version-control", "file-name"]
 # defaults: https://docs.helix-editor.com/keymap.html
 
 [keys.normal]
-# j = "move_char_left"
-# k = "move_visual_line_down"
-# l = "move_visual_line_up"
-# "é" = "move_char_right"
-# "ret" = ["open_below","normal_mode","move_visual_line_up"]
-"C-space" = ":write"
-
 C-g = [ # gitui
     ":write-all", 
     ":new", 
