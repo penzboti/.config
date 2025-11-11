@@ -8,3 +8,4 @@ fish/conf.d
 scripts/fun
 ncspot/userstate.cbor
 helix/external-snippets/
+*.toml-*

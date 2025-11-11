@@ -4,9 +4,18 @@ name = "html"
 formatter = { command = 'superhtml', args = ["fmt"] }
 language-servers = [ "scls", "superhtml" ]
 
+[language-server.godot]
+command = "nc" # or ncat
+args = [ "127.0.0.1", "6005" ]
+[[language]]
+name = "gdscript"
+language-servers = ["godot"] 
+
+
 # snippets
 [language-server.scls]
 command = "simple-completion-language-server"
+
 [language-server.scls.config]
 feature_words = false                # enable completion by word
 feature_snippets = true              # enable snippets
@@ -15,6 +24,7 @@ snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for exampl
 feature_unicode_input = false        # enable "unicode input"
 feature_paths = false                # enable path completion
 feature_citations = false            # enable citation completion (only on `citation` feature enabled)
+
 [language-server.scls.environment]   # write logs to /tmp/completion.log
 RUST_LOG = "info,simple-completion-language-server=info"
 LOG_FILE = "/tmp/completion.log"
