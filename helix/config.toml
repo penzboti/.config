@@ -21,9 +21,9 @@ rulers = [100]
 true-color = true
 end-of-line-diagnostics = "hint" # Minimum severity to show a diagnostic after the end of a line
 # https://github.com/helix-editor/helix/discussions/6209 well its not goint to be unix compliant this way
-# time to write a polyglot program (maybe?)
+mouse = false
+
 shell = ["pwsh.exe","-NoLogo","-NoProfile","-NoProfileLoadTime","-Command","$PSStyle.OutputRendering='PlainText';"]
-# TODO: disable mouse
 
 [editor.inline-diagnostics]
 cursor-line = "error" # Show inline diagnostics when the cursor is on the line
@@ -86,7 +86,6 @@ C-y = [
   ':redraw',
 ]
 # linux (file pick)
-# this is not a cross-platform config file there is no way
 # C-y = [
 #   ':sh rm -f /tmp/yazihx',
 #   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/yazihx',
