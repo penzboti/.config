@@ -1,5 +1,9 @@
-command = /usr/bin/env fish --login --interactive
+command = /run/current-system/sw/bin/fish --login --interactive
 # preview themes: ghostty +list_themes
-# i don't think themes are that relevant in fish shell
+# theme = Monokai Pro
+# theme = rose-pine
 theme = 0x96f
 background = 000000
+
+working-directory = home
+window-inherit-working-directory = false
