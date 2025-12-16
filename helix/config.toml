@@ -8,7 +8,7 @@
 
 # IMPORTANT: this is not a cross-platform config, make sure to edit the platform specific settings
 
-theme = "rose_pine"
+theme = "merionette"
 
 # EDITOR
 

@@ -1,0 +1,208 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": "auto",
+  "width": "auto",
+  "spacing": 2,
+
+  "modules-left": [
+    "custom/spacer",
+    "hyprland/workspaces",
+    "tray",
+    "mpris",
+  ],
+  "modules-center": [
+    "hyprland/window",
+  ],
+  "modules-right": [
+    "bluetooth",
+    "network",
+    "battery",
+    "backlight",
+    "pulseaudio",
+    "clock",
+    "custom/spacer",
+    "custom/spacer"
+  ],
+
+  "bluetooth": {
+    "format-on": "on ",
+    "format-off": "{status} ",
+    "format-disabled": "off ",
+    "format-connected": "",
+    "format-disconnected": "DC ",
+    "format-connected-battery": "ok ",
+    "format-device-preference": [ "ugreen_1", "ugreen_2" ],
+
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{device_alias}[{device_battery_percentage}%]\n\n{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "mpris": {
+    "format": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-order": ["artist", "title"],
+
+    "player-icons": {
+      "default": "▶",
+      // "firefox": "▶",
+    },
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸",
+      "stopped": ""
+    },
+
+    "interval": 3,
+    "max-length": 45,
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
+  },
+  "clock": {
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "format": "{:%F %R }",
+
+    "interval": 60,
+    "timezone": "Europe/Budapest",
+
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+
+      "format": {
+        "months":     "<span color='#cba6f7'><b>{}</b></span>",
+        "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks":      "<span color='#94e2d5'>W{}</span>",
+        "weekdays":   "<span color='#f9e2af'><b>{}</b></span>",
+        "today":      "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+      }
+    },
+
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "network": {
+    "format-ethernet": "ok eth",
+    "format-wifi": "ok ",
+    "format-linked": "(No IP) ",
+    "format-disconnected": "DC ⚠",
+
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}% ",
+
+    "interval": 60,
+    "interface-ethernet": "enp1s*",
+    "interface-wifi": "wlan0",
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": "婢 {icon} {format_source}",
+    "format-muted": "婢 {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+    },
+
+    "scroll-step": 2,
+    "on-click": "foot --app-id pulsemixer pulsemixer"
+  },
+  "hyprland/workspaces": {
+    "format": "<b>{icon}</b> {windows}", // if taskbar is enabled, use this
+    // "format": "<b>{icon} {windows}</b>",
+    "workspace-taskbar": {
+      "enable": true,
+      // "update-active-window": true,
+      "format": "{icon}",
+      "icon-size": 16,
+      // "icon-theme": "some_icon_theme",
+    },
+
+    // EITHER the real icons (no overwrites),
+    // or the fake icons (manually set each one)
+
+    // "window-rewrite-default": "",
+    // "window-rewrite": {
+    //   "title<.*FFPWA.*>": "",
+      // "title<.*youtube.*>": "", // no workie
+      // "class<zen-beta>": "󰖟",
+      // "class<zen-beta> title<.*github.*>": "", // no workie
+      // "com.mitchellh.ghostty": "",
+  	// },
+  },
+  "hyprland/window": {  
+    "format": "<b>{class}</b>",
+    "max-length": 20,
+    "icon": false,
+    "rewrite": {
+      // "(.*)": "'$1'",
+      "(.*)zen-beta(.*)": "zen",
+      "(.*)ghostty(.*)": "ghostty",
+      "(.*)FFPWA(.*)": "FFPWA",
+    },
+    "separate-outputs": true,
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+
+    "device": "intel_backlight",
+    "scroll-step": 1,
+  },
+  "battery": {
+    "format":"{}% {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "charging 󱐋",
+    "format-plugged": "full 󰂄",
+
+    "on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
+    "tooltip-format": "{}\n{capacity}%",
+    "interval": 5,
+  },
+  "custom/spacer": {
+    "format":" "
+  }
+  // "cpu": {
+  //     "interval": 3,
+  //     "format": "{usage}% ",
+  //     "on-click": "foot --app-id htop htop",
+  // },
+  // "memory": {
+  //     "interval": 3,
+  //     "format": "{}% ",
+  //     "on-click": "foot --app-id htop htop",
+  //     "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
+  //     "states": {
+  //         "critical": 80
+  //     }
+  // },
+  // "disk#ssd": {
+  //     "interval": 60,
+  //     "format": "{path} {free} ",
+  //     "path": "/",
+  //     "tooltip": true,
+  //     "warning": 80,
+  //     "critical": 90
+  // },
+  // linux version
+  // "custom/kernel": {
+  //   "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
+  //   "format": "{} "
+  // },
+}

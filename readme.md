@@ -1,8 +1,8 @@
 # info
-- these are my cross-platform configs.
+- these are my cross-platform & linux-platform only configs.
 ## linux configs
-- fully in nix, and that is a different repo.
-  - waybar config is a separate repo, bc its a fork (that would also be a nix only thing)
+- added linux only config files aswell (if i ever move off of nixos)
+- you can view my system configuration aswell in a separate repo (nixos)
 ## static configs
 - since, i'm not using them, they practically won't change
 - so just not symlinked

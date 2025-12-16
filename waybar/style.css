@@ -1,0 +1,237 @@
+@import url("./colors.css");
+* {
+  border: none;
+  border-radius: 2px;
+  font-family: JetBrains Mono, FontAwesome;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: @background-darker;
+  color: @foreground;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+tooltip {
+  background-color: @background;
+  border: 1px solid @selection;
+}
+
+tooltip label {
+  color: @foreground;
+}
+
+button {
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: inherit;
+  box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button {
+  all:unset;
+  padding: 0 7px;
+  background-color: @background-darker;
+  color: @foreground;
+  font-size: 8px;
+}
+#workspaces button.active {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  min-width: 20px;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  /* background-image: linear-gradient(0deg, @selection, @background-darker); */
+  background-color: @selection;
+}
+
+#workspaces button.focused {
+  background-image: linear-gradient(0deg, @purple, @selection);
+  box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button.urgent {
+  background-image: linear-gradient(0deg, @red, @background-darker);
+}
+
+#taskbar button.active {
+  background-image: linear-gradient(0deg, @selection, @background-darker);
+}
+
+#mode {
+  background-color: @background;
+  box-shadow: inset 0 -2px @foreground;
+}
+
+#mpris,
+#custom-weather,
+#clock,
+#language,
+#pulseaudio,
+#bluetooth,
+#network,
+#memory,
+#cpu,
+#temperature,
+#disk,
+#idle_inhibitor,
+#scratchpad,
+#mode,
+#battery,
+#backlight,
+#tray {
+  padding: 0 10px;
+  margin: 5px 1px;
+  color: @foreground;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* #custom-weather { */
+/*   background-color: @foreground; */
+/*   color: @background-darker; */
+/*   margin-right: 5px; */
+/* } */
+
+#clock {
+  background-color: @light_red;
+  color: @background-darker;
+}
+
+@keyframes blink {
+  to {
+    background-color: @background-darker;
+    color: @foreground;
+  }
+}
+
+label:focus {
+  background-color: @background-darker;
+}
+
+/* #cpu { */
+/*   background-color: @yellow; */
+/*   color: @background-darker; */
+/* } */
+/**/
+/* #memory { */
+/*   background-color: @yellow; */
+/*   color: @background-darker; */
+/* } */
+/**/
+/* #disk { */
+/*   background-color: @orange; */
+/*   color: @background-darker; */
+/* } */
+
+#network {
+  background-color: @cyan;
+  color: @background-darker;
+}
+
+#network.disconnected {
+  background-color: @red;
+  color: @background-darker;
+}
+
+#bluetooth {
+  background-color: @purple;
+  color: @background-darker;
+}
+
+#pulseaudio {
+  background-color: @orange;
+  color: @background-darker;
+}
+
+#pulseaudio.muted {
+  background-color: @purple;
+  color: @background-darker;
+}
+
+/* #temperature { */
+/*   background-color: @pink; */
+/*   color: @background-darker; */
+/* } */
+/**/
+/* #temperature.critical { */
+/*   background-color: @red; */
+/*   color: @background-darker; */
+/* } */
+
+#mpris {
+  background-color: @background;
+  color: @foreground;
+}
+
+#tray {
+  background-color: @comment;
+  color: @foreground;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @background-darker;
+}
+
+/* #idle_inhibitor { */
+/*   background-color: @background; */
+/*   color: @foreground; */
+/* } */
+/**/
+/* #idle_inhibitor.activated { */
+/*   background-color: @foreground; */
+/*   color: @background; */
+/* } */
+/**/
+/* #language { */
+/*   background-color: @green; */
+/*   color: @background-darker; */
+/*   min-width: 40px; */
+/* } */
+
+#scratchpad {
+  background-color: @background;
+  color: @foreground;
+}
+
+#scratchpad.empty {
+  background-color: transparent;
+}
+
+#battery {
+  background-color: @green;
+  color: @background-darker;
+}
+
+#backlight {
+  background-color: @yellow;
+  color: @background-darker;
+}
