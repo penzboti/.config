@@ -20,7 +20,7 @@ if [ -f "$statusfile" ] ;then
   if [[ $ret != "ok" ]] ;then error=true
   else
     rm "$statusfile"
-    notify-send touchpad enabled 
+    notify-send -t 1000 enabled "touchpad"
   fi
 
 else
@@ -29,7 +29,7 @@ else
   if [[ $ret != "ok" ]] ;then error=true
   else
     touch "$statusfile"
-    notify-send touchpad disabled 
+    notify-send -t 1000 disabled "touchpad"
     fi
 fi
 
