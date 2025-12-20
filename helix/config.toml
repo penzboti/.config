@@ -6,8 +6,6 @@
 # https://github.com/helix-editor/helix/blob/master/languages.toml # lsp
 # https://docs.helix-editor.com/keymap.html # current keymap
 
-# IMPORTANT: this is not a cross-platform config, make sure to edit the platform specific settings
-
 theme = "merionette"
 
 # EDITOR
@@ -49,15 +47,8 @@ left = ["mode", "spinner", "version-control", "file-name"]
 # k = "move_visual_line_down"
 # l = "move_visual_line_up"
 # "é" = "move_char_right"
-"," = "collapse_selection"
 # "ret" = ["open_below","normal_mode","move_visual_line_up"]
-A-x = "extend_to_line_bounds"
-X = "select_line_above"
-C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 "C-space" = ":write"
-# alt-gr keybinds dont work (WINDOWS), so you have to re-add them to alt keybinds
-"A-í" = "unindent"
-"A-y" = "indent"
 
 # https://github.com/helix-editor/helix/discussions/5764
 "A-j" = [
@@ -76,23 +67,20 @@ C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
 "flip_selections",
 ] # Move line(s) up
 
-# yazi file explorer (without file pick)
-# C-y = [":new", ":insert-output yazi", ":buffer-close!", ":redraw"]
-# windows (file pick)
 C-y = [
   ':sh del C:\users\penzboti\yazihx.txt',
   ':insert-output yazi.exe --chooser-file=C:\Users\penzboti\yazihx.txt',
   ':open %sh{type C:\Users\penzboti\yazihx.txt}',
   ':redraw',
 ]
-# linux (file pick)
-# C-y = [
-#   ':sh rm -f /tmp/yazihx',
-#   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/yazihx',
-#   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty', # what is this for again?
-#   ':open %sh{cat /tmp/yazihx}',
-#   ':redraw',
-# ]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+
+# alt-gr keybinds dont work (WINDOWS), so you have to re-add them to alt keybinds
+"A-í" = "unindent"
+"A-y" = "indent"
+"," = "collapse_selection"
+A-x = "extend_to_line_bounds"
+X = "select_line_above"
 
 [keys.select]
 # you can't change 'special' mode keybindings
