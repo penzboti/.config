@@ -11,6 +11,13 @@ args = [ "127.0.0.1", "6005" ]
 name = "gdscript"
 language-servers = ["godot"] 
 
+[language-server.lemminx]
+command = "lemminx"
+[[language]]
+name = "xml"
+language-servers = ["lemminx"]
+auto-format = true
+
 
 # snippets
 [language-server.scls]
