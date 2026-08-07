@@ -3,7 +3,7 @@
 # end
 
 # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_vi_key_bindings.fish
-fish_vi_key_bindings --no-erase
+fish_vi_key_bindings
 
 bind --mode insert ctrl-h accept-autosuggestion
 bind --mode insert ctrl-j down-or-search

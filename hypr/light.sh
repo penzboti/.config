@@ -5,7 +5,7 @@
 current=$(brightnessctl get)
 
 if [ "$1" = "-" ]; then
-  brightnessctl --min-value=960 -- set 5%-
+  brightnessctl set 5%-
 elif [ "$1" = "+" ]; then
   [ $current = "960" ] && brightnessctl set 4%+ || brightnessctl set 5%+
 fi
