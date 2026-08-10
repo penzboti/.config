@@ -21,7 +21,7 @@ hl.monitor({
 local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "rofi -disable-history -sort -show "
-local browser     = "helium"
+local browser     = "zen-beta"
 
 
 -------------------
@@ -217,10 +217,10 @@ hl.config({
 hl.config({
     input = {
         accel_profile = "flat",
-        kb_layout  = "hu",
+        kb_layout  = "hu,us",
+        kb_options = "grp:win_space_toggle",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "",
         kb_rules   = "",
 
         follow_mouse = 1,
