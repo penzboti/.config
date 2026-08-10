@@ -1,8 +1,10 @@
 @define-color background-darker rgba(30, 31, 41, 230);
 @define-color background #282a36;
 @define-color selection #44475a;
-@define-color foreground #f8f8f2;
+/* @define-color foreground #f8f8f2; */
+@define-color foreground #ffffff;
 @define-color comment #6272a4;
+
 @define-color purple #bd93f9;
 @define-color cyan #8be9fd;
 @define-color green #50fa7b;
@@ -11,3 +13,17 @@
 @define-color light_red #ff6767;
 @define-color red #ef3535;
 @define-color pink #ff79c6;
+
+/* https://coolors.co/palette/f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0 */
+@define-color color00 #F72585;
+@define-color color01 #B5179E;
+@define-color color02 #7209B7;
+@define-color color03 #560BAD;
+@define-color color04 #480CA8;
+@define-color color05 #3A0CA3;
+@define-color color06 #3F37C9;
+@define-color color07 #4361EE;
+@define-color color08 #4895EF;
+@define-color color09 #4CC9F0;
+@define-color text #ffffff;
+@define-color text_dark #000000;

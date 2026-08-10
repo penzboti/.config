@@ -1,4 +1,7 @@
 @import url("./colors.css");
+
+/* GLOBALS */
+
 * {
   border: none;
   border-radius: 2px;
@@ -36,13 +39,16 @@ button:hover {
   box-shadow: inset 0 -3px @foreground;
 }
 
+/* LEFT MODULES */
+
 #workspaces button {
-  all:unset;
+  all: unset;
   padding: 0 7px;
   background-color: @background-darker;
   color: @foreground;
   font-size: 8px;
 }
+
 #workspaces button.active {
   background-color: white;
   border-radius: 10px;
@@ -66,14 +72,36 @@ button:hover {
   background-image: linear-gradient(0deg, @red, @background-darker);
 }
 
-#taskbar button.active {
-  background-image: linear-gradient(0deg, @selection, @background-darker);
+#window,
+#workspaces {
+  margin: 0 4px;
 }
 
-#mode {
+/* #mode { */
+/* background-color: @background; */
+/* box-shadow: inset 0 -2px @foreground; */
+/* } */
+
+#mpris {
   background-color: @background;
-  box-shadow: inset 0 -2px @foreground;
+  color: @foreground;
 }
+
+#tray {
+  background-color: @comment;
+  color: @foreground;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @background-darker;
+}
+
+/* RIGHT MODULES */
 
 #mpris,
 #custom-weather,
@@ -91,86 +119,85 @@ button:hover {
 #mode,
 #battery,
 #backlight,
+#language,
 #tray {
   padding: 0 10px;
   margin: 5px 1px;
   color: @foreground;
+  font-weight: bold;
 }
 
-#window,
-#workspaces {
-  margin: 0 4px;
-}
-
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
   margin-left: 0;
 }
 
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
   margin-right: 0;
-}
-
-/* #custom-weather { */
-/*   background-color: @foreground; */
-/*   color: @background-darker; */
-/*   margin-right: 5px; */
-/* } */
-
-#clock {
-  background-color: @light_red;
-  color: @background-darker;
-}
-
-@keyframes blink {
-  to {
-    background-color: @background-darker;
-    color: @foreground;
-  }
 }
 
 label:focus {
   background-color: @background-darker;
 }
 
-/* #cpu { */
-/*   background-color: @yellow; */
-/*   color: @background-darker; */
-/* } */
-/**/
-/* #memory { */
-/*   background-color: @yellow; */
-/*   color: @background-darker; */
-/* } */
-/**/
-/* #disk { */
-/*   background-color: @orange; */
-/*   color: @background-darker; */
-/* } */
+#language {
+  background-color: @color00;
+  color: @text;
+}
+
+#bluetooth {
+  background-color: @color01;
+  color: @text;
+}
 
 #network {
-  background-color: @cyan;
-  color: @background-darker;
+  background-color: @color02;
+  color: @text;
 }
 
 #network.disconnected {
   background-color: @red;
-  color: @background-darker;
+  color: @text;
 }
 
-#bluetooth {
-  background-color: @purple;
-  color: @background-darker;
+#battery {
+  background-color: @color03;
+  color: @text;
+}
+
+#backlight {
+  background-color: @color06;
+  color: @text;
 }
 
 #pulseaudio {
-  background-color: @orange;
-  color: @background-darker;
+  background-color: @color08;
+  color: @text;
 }
 
 #pulseaudio.muted {
-  background-color: @purple;
-  color: @background-darker;
+  color: @text_dark;
 }
+
+#clock {
+  background-color: @color09;
+  color: @text_dark;
+}
+
+
+/* #cpu { */
+/*   background-color: @yellow; */
+/*   color: @background-darker; */
+/* } */
+
+/* #memory { */
+/*   background-color: @yellow; */
+/*   color: @background-darker; */
+/* } */
+
+/* #disk { */
+/*   background-color: @orange; */
+/*   color: @background-darker; */
+/* } */
 
 /* #temperature { */
 /*   background-color: @pink; */
@@ -182,56 +209,19 @@ label:focus {
 /*   color: @background-darker; */
 /* } */
 
-#mpris {
-  background-color: @background;
-  color: @foreground;
-}
-
-#tray {
-  background-color: @comment;
-  color: @foreground;
-}
-
-#tray > .passive {
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: @background-darker;
-}
-
 /* #idle_inhibitor { */
 /*   background-color: @background; */
 /*   color: @foreground; */
 /* } */
-/**/
 /* #idle_inhibitor.activated { */
 /*   background-color: @foreground; */
 /*   color: @background; */
 /* } */
-/**/
-/* #language { */
-/*   background-color: @green; */
-/*   color: @background-darker; */
-/*   min-width: 40px; */
+
+/* #scratchpad { */
+/* background-color: @background; */
+/* color: @foreground; */
 /* } */
-
-#scratchpad {
-  background-color: @background;
-  color: @foreground;
-}
-
-#scratchpad.empty {
-  background-color: transparent;
-}
-
-#battery {
-  background-color: @green;
-  color: @background-darker;
-}
-
-#backlight {
-  background-color: @yellow;
-  color: @background-darker;
-}
+/* #scratchpad.empty { */
+/* background-color: transparent; */
+/* } */

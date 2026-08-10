@@ -1,5 +1,6 @@
 {
-  // TODO: some icons are broken, and show up as other characters
+  // https://alexforsale.github.io/dotfiles-waybar/ -> could be good
+  // note: hyprland workspaces not being able to be clicked on is merged but not released
   "layer": "top",
   "position": "top",
   "height": "auto",
@@ -15,6 +16,7 @@
     "hyprland/window",
   ],
   "modules-right": [
+    "hyprland/language",
     "bluetooth",
     "network",
     "battery",
@@ -24,21 +26,32 @@
     "custom/spacer",
     "custom/spacer"
   ],
-  "bluetooth": {
-    "format-on": "on ",
-    "format-off": "{status} ",
-    "format-disabled": "off ",
-    "format-connected": "",
-    "format-disconnected": "DC ",
-    "format-connected-battery": "ok ",
-    "format-device-preference": [
-      "ugreen_1",
-      "ugreen_2"
-    ],
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{device_alias}[{device_battery_percentage}%]\n\n{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  // left modules
+  "hyprland/workspaces": {
+    "format": "<b>{icon}</b> {windows}", // if taskbar is enabled, use this
+    // "format": "<b>{icon} {windows}</b>",
+    "workspace-taskbar": {
+      "enable": true,
+      // "update-active-window": true,
+      "format": "{icon}",
+      "icon-size": 16,
+      // "icon-theme": "some_icon_theme",
+    },
+    "unique-icons": true,
+    // EITHER the real icons (no overwrites),
+    // or the fake icons (manually set each one)
+    // "window-rewrite-default": "",
+    // "window-rewrite": {
+    //   "title<.*FFPWA.*>": "",
+    // "title<.*youtube.*>": "", // no workie
+    // "class<zen-beta>": "󰖟",
+    // "class<zen-beta> title<.*github.*>": "", // no workie
+    // "com.mitchellh.ghostty": "",
+    // },
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
   },
   "mpris": {
     "format": "{status_icon} <i>{dynamic}</i>",
@@ -58,9 +71,103 @@
     "interval": 3,
     "max-length": 45,
   },
-  "tray": {
-    "icon-size": 13,
-    "spacing": 10
+  // center
+  "hyprland/window": {
+    "format": "<b>{class}</b>",
+    "max-length": 40,
+    "icon": false,
+    "rewrite": {
+      // "(.*)": "'$1'",
+      "(.*)zen-beta(.*)": "zen",
+      "(.*)ghostty(.*)": "ghostty",
+      "(.*)FFPWA(.*)": "FFPWA",
+    },
+    "separate-outputs": true,
+  },
+  // right modules
+  "hyprland/language": {
+    // "format": "{short} ", // global formatting doesnt work
+    "format-hu": "hu ",
+    "format-en": "english ",
+  },
+  "bluetooth": {
+    "format-on": "on ",
+    "format-off": "{status} ",
+    "format-disabled": "off ",
+    "format-connected": "",
+    "format-disconnected": "DC ",
+    "format-connected-battery": "ok ",
+    "format-device-preference": [
+      "ugreen_1",
+      "ugreen_2"
+    ],
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{device_alias}[{device_battery_percentage}%]\n\n{controller_alias}\t{controller_address}\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "network": {
+    "format-ethernet": "ok ",
+    "format-wifi": "ok ",
+    "format-linked": "(No IP) ",
+    "format-disconnected": "DC ⚠",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}% ",
+    "interval": 60,
+    "interface-ethernet": "enp1s*",
+    "interface-wifi": "wlan0",
+  },
+  "battery": {
+    "format": "{}% {icon}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-charging": "charging 󱐋",
+    "format-plugged": "full 󰂄",
+    "tooltip-format": "{}\n{capacity}%",
+    "interval": 5,
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "󰃞",
+      "󰃝",
+      "󰃟",
+      "󰃠"
+    ],
+    "device": "intel_backlight",
+    "scroll-step": 1,
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}", // broken???
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+    },
+    "scroll-step": 2,
+    "on-click": "foot --app-id pulsemixer pulsemixer"
+  },
+  "custom/spacer": {
+    "format": " "
   },
   "clock": {
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -89,103 +196,6 @@
       "on-scroll-down": "shift_down"
     }
   },
-  "network": {
-    "format-ethernet": "ok eth",
-    "format-wifi": "ok ",
-    "format-linked": "(No IP) ",
-    "format-disconnected": "DC ⚠",
-    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-    "tooltip-format-wifi": "{essid}\nstrength: {signalStrength}% ",
-    "interval": 60,
-    "interface-ethernet": "enp1s*",
-    "interface-wifi": "wlan0",
-  },
-  "pulseaudio": {
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "婢 {icon} {format_source}", // broken???
-    "format-muted": "婢 {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-    },
-    "scroll-step": 2,
-    "on-click": "foot --app-id pulsemixer pulsemixer"
-  },
-  "hyprland/workspaces": {
-    "format": "<b>{icon}</b> {windows}", // if taskbar is enabled, use this
-    // "format": "<b>{icon} {windows}</b>",
-    "workspace-taskbar": {
-      "enable": true,
-      // "update-active-window": true,
-      "format": "{icon}",
-      "icon-size": 16,
-      // "icon-theme": "some_icon_theme",
-    },
-    // EITHER the real icons (no overwrites),
-    // or the fake icons (manually set each one)
-    // "window-rewrite-default": "",
-    // "window-rewrite": {
-    //   "title<.*FFPWA.*>": "",
-    // "title<.*youtube.*>": "", // no workie
-    // "class<zen-beta>": "󰖟",
-    // "class<zen-beta> title<.*github.*>": "", // no workie
-    // "com.mitchellh.ghostty": "",
-    // },
-  },
-  "hyprland/window": {
-    "format": "<b>{class}</b>",
-    "max-length": 20,
-    "icon": false,
-    "rewrite": {
-      // "(.*)": "'$1'",
-      "(.*)zen-beta(.*)": "zen",
-      "(.*)ghostty(.*)": "ghostty",
-      "(.*)FFPWA(.*)": "FFPWA",
-    },
-    "separate-outputs": true,
-  },
-  "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": [
-      "󰃞",
-      "󰃝",
-      "󰃟",
-      "󰃠"
-    ],
-    "device": "intel_backlight",
-    "scroll-step": 1,
-  },
-  "battery": {
-    "format": "{}% {icon}",
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
-    "format-charging": "charging 󱐋",
-    "format-plugged": "full 󰂄",
-    "on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
-    "tooltip-format": "{}\n{capacity}%",
-    "interval": 5,
-  },
-  "custom/spacer": {
-    "format": " "
-  }
   // "cpu": {
   //     "interval": 3,
   //     "format": "{usage}% ",
