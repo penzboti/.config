@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 service=$(systemctl status firewall.service 2>&1)
 

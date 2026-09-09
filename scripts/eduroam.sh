@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # https://gist.github.com/BollaBerg/7a3fc9744d5bf6eb16f8aab5928df755
 # https://gist.github.com/AntonFriberg/d1d028c66082889878f1987118a2d251
 
-wifi_device=wlp0s20f3
+wifi_device=wlp1s0
 
 nmcli con add \
   type wifi \

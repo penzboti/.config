@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # INFO: https://www.reddit.com/r/hyprland/comments/1bqohmd/dynamically_enabledisable_device/
 
 alldevices=$(hyprctl devices 2>&1)

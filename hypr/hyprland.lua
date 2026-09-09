@@ -21,7 +21,7 @@ hl.monitor({
 local terminal    = "ghostty"
 local fileManager = "thunar"
 local menu        = "rofi -disable-history -sort -show "
-local browser     = "zen-beta"
+local browser     = "helium"
 
 
 -------------------
