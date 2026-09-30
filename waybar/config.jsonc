@@ -36,6 +36,7 @@
       "format": "{icon}",
       "icon-size": 16,
       // "icon-theme": "some_icon_theme",
+      "on-click-window": "hyprctl dispatch \"hl.dsp.focus({workspace = hl.get_window('address:{address}').workspace})\"",
     },
     "unique-icons": true,
     // EITHER the real icons (no overwrites),

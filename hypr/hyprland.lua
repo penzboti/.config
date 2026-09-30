@@ -56,6 +56,8 @@ hl.env("QT_QPA_PLATFORMTHEME","qt6ct")
 hl.env("XDG_SESSION_TYPE","wayland")
 hl.env("XDG_SESSION_DESKTOP","Hyprland")
 hl.env("HYPRSHOT_DIR","/home/penzboti/Pictures/hyprshot")
+hl.env("EDITOR","hx")
+hl.env("RUSTICL_ENABLE","radeonsi")
 
 
 -----------------------
@@ -260,6 +262,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pin({ action = "toggle" }))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t"))
+hl.bind(mainMod .. " + I", hl.dsp.layout("togglesplit"))
 
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
