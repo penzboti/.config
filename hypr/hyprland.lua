@@ -211,6 +211,11 @@ hl.config({
     },
 })
 
+hl.config({
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
 
 ---------------
 ---- INPUT ----
@@ -231,7 +236,10 @@ hl.config({
 
         touchpad = {
             natural_scroll = false,
+            disable_while_typing = false, -- bad for gaming :c
         },
+
+        numlock_by_default = true,
     },
 })
 
@@ -299,6 +307,13 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+
+-- attempt
+hl.bind(mainMod .. " + period", function()
+    hl.dispatch( hl.dsp.window.fullscreen({ action = "unset" }) )
+    hl.dispatch( hl.dsp.focus({ direction = "left" }) )
+    hl.dispatch( hl.dsp.window.fullscreen({ action = "set" }) )
+end)
 
 
 --------------------------------

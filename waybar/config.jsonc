@@ -39,6 +39,7 @@
       "on-click-window": "hyprctl dispatch \"hl.dsp.focus({workspace = hl.get_window('address:{address}').workspace})\"",
     },
     "unique-icons": true,
+    "on-click": "activate",
     // EITHER the real icons (no overwrites),
     // or the fake icons (manually set each one)
     // "window-rewrite-default": "",
@@ -87,9 +88,10 @@
   },
   // right modules
   "hyprland/language": {
-    // "format": "{short} ", // global formatting doesnt work
-    "format-hu": "hu ",
-    "format-en": "english ",
+    "format": "{} ", // if short: bug https://github.com/Alexays/waybar/issues/5295
+    "format-hu": "hu",
+    "format-en": "english",
+    "interval": "60",
   },
   "bluetooth": {
     "format-on": "on ",
