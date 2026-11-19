@@ -58,6 +58,7 @@ hl.env("XDG_SESSION_DESKTOP","Hyprland")
 hl.env("HYPRSHOT_DIR","/home/penzboti/Pictures/hyprshot")
 hl.env("EDITOR","hx")
 hl.env("RUSTICL_ENABLE","radeonsi")
+hl.env("STEEL_HOME","/home/penzboti/.steel")
 
 
 -----------------------

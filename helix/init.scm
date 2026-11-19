@@ -1,16 +1,42 @@
-(require "mattwparas-helix-package/splash.scm")
+;; https://github.com/npupko/awesome-helix
 
-(define (includes s list)
-  (displayln s (string-join list " "))
-  (if (null? list)
-    #f
-    (if (equal? s (car list))
-      #t
-      (includes s (cdr list)))))
+;; SPLASH
+(require "splash-hx/splash.scm")
 
-(define (GOOD_STRING_LIST)
-  (list "/home/penzboti/.cargo/bin/hx"
-        "C:\\Users\\penzboti\\.cargo\\bin\\hx.exe"))
-
-(when (includes (string-join (command-line) " ") (GOOD_STRING_LIST)) ; on windows, it is the whole path; so this doesn't work.
+(when (equal? (command-line) '("hx"))
   (show-splash))
+
+;; NOTIFY
+(require "notify/notify.scm")
+
+(notify-config 'render 'default)
+
+;; VIM
+(require "vim-hx/init.scm")
+
+(set-vim-keybindings!)
+
+;; SCOOTER
+;; search and replace
+(require "scooter/scooter.scm")
+;; :scooter
+
+;; FOREST
+(require "forest/forest.scm")
+(forest-snack-circular-keybinds #t)
+;; :forest-open
+
+;; FILE-WATCHER
+(require "helix-file-watcher/file-watcher.scm")
+;; :spawn-watcher
+
+;; PTY
+(require "steel-pty/term.scm")
+;; :open-term
+;; :kill-active-terminal (close)
+;; :hide-term (:open-term to reopen, will be the same)
+;; Shift-Tab to exit
+
+;; HETEX
+(require "hetex/hetex.scm")
+;; :hetex-run

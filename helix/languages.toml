@@ -18,11 +18,26 @@ name = "xml"
 language-servers = ["lemminx"]
 auto-format = true
 
+[language-server.pico8-ls]
+command = "pico8-ls"
+args = [ "--stdio" ]
+[[language]]
+name = "p8"
+scope = "scope.lua"
+language-servers = [ "pico8-ls" ]
+file-types = ["p8lua", "p8"]
+comment-tokens = "--"
+
+[language-server.steel-language-server]
+command = "steel-language-server"
+args = []
+[[language]]
+name = "scheme"
+language-servers = [ "steel-language-server" ]
 
 # snippets
 [language-server.scls]
 command = "simple-completion-language-server"
-
 [language-server.scls.config]
 feature_words = false                # enable completion by word
 feature_snippets = true              # enable snippets
@@ -31,7 +46,6 @@ snippets_inline_by_word_tail = false # suggest snippets by WORD tail, for exampl
 feature_unicode_input = false        # enable "unicode input"
 feature_paths = false                # enable path completion
 feature_citations = false            # enable citation completion (only on `citation` feature enabled)
-
 [language-server.scls.environment]   # write logs to /tmp/completion.log
 RUST_LOG = "info,simple-completion-language-server=info"
 LOG_FILE = "/tmp/completion.log"

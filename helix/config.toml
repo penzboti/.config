@@ -6,7 +6,7 @@
 # https://github.com/helix-editor/helix/blob/master/languages.toml # lsp
 # https://docs.helix-editor.com/keymap.html # current keymap
 
-theme = "merionette"
+theme = "ayu_evolve"
 
 # EDITOR
 
@@ -44,17 +44,6 @@ C-g = [ # gitui
     ":write-all", 
     ":new", 
     ":insert-output gitui >/dev/tty", 
-    # ":set mouse false", 
-    # ":set mouse true",
-    ":buffer-close!", 
-    ":redraw", 
-    ":reload-all"
-]
-C-t = [ # testing a terminal emulator
-    ":write-all", 
-    ":new", 
-    # ":redraw", 
-    ":insert-output /home/penzboti/programming/rust/term/target/debug/term >/dev/tty", 
     # ":set mouse false", 
     # ":set mouse true",
     ":buffer-close!", 
